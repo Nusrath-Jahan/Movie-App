@@ -1,3 +1,138 @@
-body {
-    background-color: aquamarine;
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
+* {
+  font-family: "Montserrat", sans-serif;
+  background-color: rgb(33, 26, 26);
 }
+header {
+  display: flex;
+  justify-content: space-between;
+  align-content: center;
+  margin: 20px 0 20px 10px;
+  padding: 20px 0 0 50px;
+}
+.main{
+    margin: 20px 0 20px 50px;
+}
+  .site-name {
+    color: rgb(128, 0, 32);
+    font-weight: bolder;
+    font-size: xx-large;
+  }
+  
+  .forUser {
+    display: flex;
+    cursor: pointer;
+    color: rgb(237, 232, 233);
+    margin-top: 40px;
+    margin-right: 40px;
+  }
+  .forUser a {
+    text-decoration: none;
+    color: rgb(204, 195, 195);
+    background-color: rgb(128, 0, 32);
+    border-radius: 10px;
+    padding: 10px 30px;
+  }
+  .forUser a:hover {
+    background-color: rgb(235, 225, 225);
+    color: rgb(128, 0, 32);
+    font-weight: bolder;
+  }
+  .forUser i {
+    font-size: 25px;
+    margin-right: 10px;
+    padding: 0 14px;
+    color: rgb(128, 0, 32);
+  }
+  #shorting {
+    color: rgb(128, 0, 32);
+    background-color: none;
+  }
+  #shorting:hover {
+    display: block;
+  }
+  
+  #filters {
+    display: none;
+    position: absolute;
+    font-weight: normal;
+    font-size: 15px;
+    color: beige;
+  }
+  .filter:hover {
+    color: rgb(128, 0, 32);
+  }
+  .accordion {
+    cursor: pointer;
+    text-align: left;
+    border-radius: 2rem;
+    outline: none;
+    transition: 0.4s;
+    background-color: rgb(128, 0, 32);
+    margin-top: 10px;
+  }
+  
+  .accordion:hover {
+    background-color: black;
+    color: white;
+  }
+  .movie-details {
+    display: none;
+    margin-top: 10px;
+  }
+
+  .movie-container {
+    display: inline-block;
+    text-align: center;
+    margin: 10px;  
+  }
+  .movie-container img {
+    display: block;
+    margin: 0 auto;
+  }
+  
+  .movie-container button {
+    display: block;
+    margin: 10px auto 0;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+  }
+  .movie-container img:hover,
+  .movie-container button:hover {
+    transform: scale(1.2);
+  }
+  .active + .movie-details {
+    display: block;
+  }
+  
+  .comment-button {
+    color: rgb(128, 0, 32);
+    font-weight: bold;
+  }
+  .star-rating {
+    margin-top: 10px;
+    color: rgb(68, 68, 109);
+  }
+  .not-found-message {
+    color: red; 
+    font-size: 50px;
+  }
+
+  
+  Fading animation
+  .fade {
+    animation-name: fade;
+    animation-duration: 1.5s;
+  }
+  
+  @keyframes fade {
+    from {opacity: .4} 
+    to {opacity: 1}
+  }
+  
+  /* On smaller screens, decrease text size */
+  @media only screen and (max-width: 300px) {
+    .prev, .next,.text {font-size: 11px}
+  }
+  

@@ -3,13 +3,35 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Movie Streaming Application</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <script type="module" src="script.js" defer></script>
+    <script type="module" src="arrayList.js"></script>
 </head>
-
 <body>
-   
-    <script src="script.js"></script>
-    <script src="arrayList.js"></script>
+    <header>
+        <p class="site-name"><i class="fa fa-video-camera col_red me-1" style="margin-right: 10px"></i>Flimy Fly</p>
+        <div class="forUser">
+        <span>
+        <input type="search" id="keyword-search" placeholder="search" required style="width: 300px; height: 40px;"/>
+        <i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
+        </span>
+        </div>
+      </header>
+
+      <!-- Streaming Section -->
+      <section class="main">
+            <div class="streaming"></div>
+            <div id="result-container"></div>
+      </section>
+
+    
 </body>
 </html>
