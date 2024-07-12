@@ -1,6 +1,5 @@
 import { movies } from "./arrayList.js";
 
-//////////////////////Streaming Function
 const nowStreaming = document.querySelector(".streaming");
 function createMovieCard(movie) {
   const movieContainer = createMovieContainer();
@@ -32,17 +31,18 @@ function createMovieContainer() {
 function createMovieElements(movie) {
   // Create image element
   const img = document.createElement("img");
-  img.width = 200;
+  img.className = "movie-img";
   img.src = movie.poster_url;
 
   // Create button element
   const readMoreBtn = document.createElement("button");
   readMoreBtn.textContent = "Read more";
-  readMoreBtn.className = "accordion";
+  readMoreBtn.className = "read-more-button";
 
   // Create star rating element
   const starRating = document.createElement("div");
   starRating.className = "star-rating";
+
   const numberOfStars = 5;
   let stars = [];
 
@@ -133,36 +133,45 @@ function addEventListeners(readMoreBtn, movieDetails, stars) {
   });
 }
 
-function createMoviesPage() {
+function displayMovies(moviesArray) {
   nowStreaming.innerHTML = "";
-  movies.forEach((movie) => {
+  moviesArray.forEach((movie) => {
     const movieElement = createMovieCard(movie);
     nowStreaming.appendChild(movieElement);
   });
 }
-createMoviesPage();
 
-// JS 2
-const searchBtn = document.getElementById("search-icon");
+function searchMovies(keyword) {
+  return movies.filter((movie) =>
+    movie.title.toLowerCase().includes(keyword.toLowerCase())
+  );
+}
 
-// function to search
-const inputField = document.getElementById("keyword-search");
-searchBtn.addEventListener("click", () => {
-  const inputStr = inputField.value.toLowerCase();
-  nowStreaming.innerHTML = "";
-  let found = false; // Flag to check if any movie is found
-
-  movies.forEach((movie) => {
-    if (
-      movie.title.toLowerCase().includes(inputStr) ||
-      movie.description.toLowerCase().includes(inputStr)
-    ) {
-      found = true;
-      const searchMovieElement = createMovieCard(movie);
-      nowStreaming.appendChild(searchMovieElement);
+function sortMovies(property, ascending = true) {
+  return movies.slice().sort((a, b) => {
+    if (a[property] < b[property]) {
+      return ascending ? -1 : 1;
     }
-    if (!found) {
-      nowStreaming.innerHTML = `<p class="not-found-message">Not Found</p>`;
+    if (a[property] > b[property]) {
+      return ascending ? 1 : -1;
     }
+    return 0;
   });
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+  displayMovies(movies);
+
+  const searchInput = document.getElementById("keyword-search");
+  searchInput.placeholder = "Search by title...";
+  searchInput.oninput = (e) => {
+    const filteredMovies = searchMovies(e.target.value);
+    displayMovies(filteredMovies);
+  };
+
+  const sortSelect = document.getElementById("sort-options");
+  sortSelect.onchange = (e) => {
+    const sortedMovies = sortMovies(e.target.value);
+    displayMovies(sortedMovies);
+  };
 });

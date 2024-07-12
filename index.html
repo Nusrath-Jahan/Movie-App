@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Streaming Application</title>
+    <title>Movie Streaming </title>
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
@@ -17,17 +17,22 @@
 </head>
 <body>
     <header>
-        <p class="site-name"><i class="fa fa-video-camera col_red me-1" style="margin-right: 10px"></i>Flimy Fly</p>
+        <p class="site-name"><i class="fa fa-video-camera col_red me-1" ></i>Flimy Fly</p>
         <div class="forUser">
+          <select id="sort-options" >
+            <option value="title">Sort by title</option>
+            <option value="movie_year">Sort by movie_year</option>
+            <option value="rating">Sort by rating</option>
+          </select>
         <span>
-        <input type="search" id="keyword-search" placeholder="search" required style="width: 300px; height: 40px;"/>
+        <input type="search" id="keyword-search" placeholder="search" required />
         <i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
         </span>
         </div>
       </header>
 
       <!-- Streaming Section -->
-      <section class="main">
+      <section>
             <div class="streaming"></div>
             <div id="result-container"></div>
       </section>
