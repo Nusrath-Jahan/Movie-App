@@ -1,6 +1,14 @@
 import { movies } from "./arrayList.js";
 
 const nowStreaming = document.querySelector(".streaming");
+const startTimerBtn = document.getElementById("start-timer");
+const timerInput = document.getElementById("timer-input");
+const countdownTimer = document.getElementById("countdown-timer");
+const timeSpent = document.getElementById("time-spent");
+let countdownInterval;
+let timeSpentInterval;
+
+
 function createMovieCard(movie) {
   const movieContainer = createMovieContainer();
   const movieElements = createMovieElements(movie);
@@ -174,4 +182,42 @@ document.addEventListener("DOMContentLoaded", () => {
     const sortedMovies = sortMovies(e.target.value);
     displayMovies(sortedMovies);
   };
+  startTimeSpent();
 });
+//--------------------------------------------------
+function startCountdown(duration) {
+  let timer = duration * 60;
+  countdownInterval = setInterval(() => {
+    const minutes = Math.floor(timer / 60);
+    const seconds = timer % 60;
+    countdownTimer.textContent = `Time left: ${minutes}m ${seconds}s`;
+    if (--timer < 0) {
+      clearInterval(countdownInterval);
+      alert("Time's up! Make your movie selection now.");
+    }
+  }, 1000);
+}
+
+function startTimer() {
+  const minutes = parseInt(timerInput.value);
+  if (isNaN(minutes) || minutes <= 0) {
+    alert("Please enter a valid number of minutes.");
+    return;
+  }
+  countdownTimer.textContent = "";
+  clearInterval(countdownInterval);
+  startCountdown(minutes);
+}
+
+function startTimeSpent() {
+  let timer = 0;
+  timeSpentInterval = setInterval(() => {
+    timer++;
+    const minutes = Math.floor(timer / 60);
+    const seconds = timer % 60;
+    timeSpent.textContent = `Time spent on this page: ${minutes}m ${seconds}s`;
+  }, 1000);
+}
+
+startTimerBtn.addEventListener("click", startTimer);
+
