@@ -134,6 +134,23 @@ option {
   font-size: 20px;
   cursor: pointer;
   }
+
+  #timer-section {
+  text-align: center;
+  color: white;
+  margin-top: 20px;
+}
+
+#timer-input, #start-timer {
+  color: aliceblue;
+  padding: 10px;
+  margin: 10px;
+}
+
+#countdown-timer, #time-spent {
+  margin-top: 20px;
+  font-size: 18px;
+}
  
   
 /* Fading animation */
