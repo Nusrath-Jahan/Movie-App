@@ -1,4 +1,4 @@
-import { movies } from "./arrayList.js";
+// import { movies } from "./arrayList.js";
 
 const nowStreaming = document.querySelector(".streaming");
 const startTimerBtn = document.getElementById("start-timer");
@@ -8,6 +8,36 @@ const timeSpent = document.getElementById("time-spent");
 let countdownInterval;
 let timeSpentInterval;
 
+// Function to fetch data from API
+async function fetchMoviesFromAPI() {
+  try {
+    const response = await fetch("https://raw.githubusercontent.com/Nusrath-Jahan/Nusrath-Jahan.github.io/main/data.json");
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    return await response.json();
+  } catch (error) {
+    console.error('Error fetching movies:', error);
+    return [];
+  }
+}
+
+// Function to process fetched movies and create movie cards
+function processMovies() {
+  fetchMoviesFromAPI()
+    .then(function(movies) {
+      movies.forEach(function(movie) {
+        var movieCard = createMovieCard(movie);
+        nowStreaming.appendChild(movieCard);
+      });
+    })
+    .catch(function(error) {
+      console.error('Error processing movies:', error);
+    });
+}
+
+// Call processMovies to initiate fetching and processing
+processMovies();
 
 function createMovieCard(movie) {
   const movieContainer = createMovieContainer();
@@ -171,7 +201,7 @@ document.addEventListener("DOMContentLoaded", () => {
   displayMovies(movies);
 
   const searchInput = document.getElementById("keyword-search");
-  searchInput.placeholder = "Search by title...";
+  searchInput.placeholder = "Search ...";
   searchInput.oninput = (e) => {
     const filteredMovies = searchMovies(e.target.value);
     displayMovies(filteredMovies);
@@ -215,9 +245,8 @@ function startTimeSpent() {
     timer++;
     const minutes = Math.floor(timer / 60);
     const seconds = timer % 60;
-    timeSpent.textContent = `Time spent on this page: ${minutes}m ${seconds}s`;
+    timeSpent.textContent = `Timer ${minutes}m ${seconds}s`;
   }, 1000);
 }
 
 startTimerBtn.addEventListener("click", startTimer);
-
