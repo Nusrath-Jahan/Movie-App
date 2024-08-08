@@ -16,26 +16,32 @@
     <script type="module" src="arrayList.js"></script>
 </head>
 <body>
-    <header>
+
+      <header>
         <p class="site-name"><i class="fa fa-video-camera col_red me-1" ></i>Flimy Fly</p>
-        <div class="forUser">
-          <select id="sort-options" >
-            <option value="title">Sort by title</option>
-            <option value="movie_year">Sort by movie_year</option>
-            <option value="rating">Sort by rating</option>
-          </select>
         <span>
-        <input type="search" id="keyword-search" placeholder="search" required />
-        <i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
-        </span>
-        </div>
+        <select id="sort-options" >
+          <option value="title">Search by title</option>
+          <option value="movie_year">Search by movie_year</option>
+          <option value="rating">Search by rating</option>
+        </select>
+      </span>
+
+        <nav>
+          <li><input type="search" id="keyword-search" placeholder="search" required />
+            <i id="search-icon" class="fa-solid fa-magnifying-glass"></i></li>
+            
+        </nav>
+        
+          
       </header>
        <!-- Timer Section -->
     <section id="timer-section">
-      <h2>Set a Timer</h2>
-      <label for="timer-input">Minutes: </label>
+      <!-- <h2>Set a Timer</h2> -->
+      <label for="timer-input">Set a Timer 
       <input type="number" id="timer-input" min="1" placeholder="Enter minutes" required />
-      <button id="start-timer">Start Timer</button>
+    </label>
+      <button id="start-timer">Start</button>
       <p id="countdown-timer"></p>
       <p id="time-spent"></p>
   </section>
@@ -46,6 +52,7 @@
             <div id="result-container"></div>
       </section>
 
+    
      
 
     
