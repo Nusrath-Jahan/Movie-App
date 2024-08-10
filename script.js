@@ -1,4 +1,4 @@
-// import { movies } from "./arrayList.js";
+
 
 const nowStreaming = document.querySelector(".streaming");
 const startTimerBtn = document.getElementById("start-timer");
@@ -23,18 +23,19 @@ async function fetchMoviesFromAPI() {
 }
 
 // Function to process fetched movies and create movie cards
+let movies = []; // Initialize empty array to store movies
+
 function processMovies() {
   fetchMoviesFromAPI()
-    .then(function(movies) {
-      movies.forEach(function(movie) {
-        var movieCard = createMovieCard(movie);
-        nowStreaming.appendChild(movieCard);
-      });
+    .then(function(data) {
+      movies = data; // Store fetched movies in the 'movies' array
+      displayMovies(movies); // Display movies after fetching
     })
     .catch(function(error) {
       console.error('Error processing movies:', error);
     });
 }
+
 
 // Call processMovies to initiate fetching and processing
 processMovies();
@@ -198,7 +199,7 @@ function sortMovies(property, ascending = true) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
-  displayMovies(movies);
+  displayMovies(movies); 
 
   const searchInput = document.getElementById("keyword-search");
   searchInput.placeholder = "Search ...";
