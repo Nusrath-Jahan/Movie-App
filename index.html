@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Movie Streaming </title>
+    <title>Movie Streaming</title>
     <link rel="stylesheet" href="styles.css" />
     <link
       rel="stylesheet"
@@ -12,49 +12,52 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
-    <script type="module" src="script.js" defer></script>
-    
 </head>
 <body>
 
-      <header>
-        <p class="site-name"><i class="fa fa-video-camera col_red me-1" ></i>Flimy Fly</p>
+    <header>
+        <p class="site-name"><i class="fa fa-video-camera col_red me-1"></i>Flimy Fly</p>
         <span>
-        <select id="sort-options" >
-          <option value="title">Search by title</option>
-          <option value="movie_year">Search by movie_year</option>
-          <option value="rating">Search by rating</option>
+        <select id="sort-options">
+          <option value="title">Sort by title</option>
+          <option value="movie_year">Sort by year</option>
+          <option value="rating">Sort by rating</option>
         </select>
       </span>
 
         <nav>
-          <li><input type="search" id="keyword-search" placeholder="search" required />
-            <i id="search-icon" class="fa-solid fa-magnifying-glass"></i></li>
-            
+          <li>
+            <input type="search" id="keyword-search" placeholder="search" required />
+            <i id="search-icon" class="fa-solid fa-magnifying-glass"></i>
+          </li>
         </nav>
-        
-          
-      </header>
-       <!-- Timer Section -->
+    </header>
+
+    <!-- Timer Section -->
     <section id="timer-section">
-      <!-- <h2>Set a Timer</h2> -->
       <label for="timer-input">Set a Timer 
       <input type="number" id="timer-input" min="1" placeholder="Enter minutes" required />
-    </label>
+      </label>
       <button id="start-timer">Start</button>
       <p id="countdown-timer"></p>
       <p id="time-spent"></p>
-  </section>
+    </section>
 
-      <!-- Streaming Section -->
-      <section>
-            <div class="streaming"></div>
-            <div id="result-container"></div>
-      </section>
+    <!-- Streaming Section -->
+    <section>
+        <div class="streaming" id="nowStreaming"></div>
+        <div id="result-container"></div>
+    </section>
 
+    <!-- Script Files -->
     
-     
+<script src="JS/Comment-Section.js" defer></script>
+<script src="JS/Event-Listeners.js" defer></script>
+<script src="JS/Fetching-and-Displaying-Movies.js" defer></script>
+<script src="JS/Movie-Cards.js" defer></script>
+<script src="JS/Search.js" defer></script>
+<script src="JS/Sort.js" defer></script>
+<script src="JS/Timer.js" defer></script>
 
-      
 </body>
 </html>
