@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Mulish:ital,wght@0,200..1000;1,200..1000&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
 * {
   font-family: "Montserrat", sans-serif;
-  background-color: rgb(12, 26, 24);
+  background-color: rgb(8, 13, 34);
   margin: 0;
   padding: 0;
 }
@@ -51,11 +51,10 @@ header {
     margin-bottom: 20px;
     margin-right: 300px;
     height: 40px;
-    /* background-color: rgb(10, 12, 21); */
-    color: aliceblue;
+   color: aliceblue;
   }
 option {
-    background-color: rgb(117, 138, 245);
+    background-color:  rgb(128, 0, 32);
     color: antiquewhite;
   }
 
@@ -82,11 +81,10 @@ option {
   }
 
 .movie-container {
-  background-color: white;
   border-radius: 10px;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   margin: 20px;
-  width: 300px;
+  width: 200px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
@@ -97,6 +95,7 @@ option {
     border: 1px solid var(--main-color);
   }
 .movie-img {
+  border-radius: 20px;
   width: 100%;
   height: auto;
   display: block;
@@ -179,4 +178,3 @@ option {
   @media only screen and (max-width: 300px) {
     .prev, .next,.text {font-size: 11px}
   }
-  
