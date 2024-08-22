@@ -23,4 +23,29 @@ function addEventListeners(readMoreBtn, movieDetails, stars) {
       };
     });
   }
+  //-------------------------
+  document.addEventListener("DOMContentLoaded", () => {
+    fetchMoviesFromAPI().then(fetchedMovies => {
+      movies = fetchedMovies; // Store the fetched movies globally
+      displayMovies(movies); // Display all movies initially
+  
+      // Search Functionality
+      const searchInput = document.getElementById("keyword-search");
+      searchInput.addEventListener("input", (e) => {
+        searchMovies(e.target.value);
+      });
+  
+      // Sort Functionality
+      const sortSelect = document.getElementById("sort-options");
+      sortSelect.addEventListener("change", (e) => {
+        sortMovies(e.target.value);
+      });
+  
+      // Example Filter by Year (You can add more filters as needed)
+      const yearInput = document.getElementById("year-filter");
+      yearInput.addEventListener("input", (e) => {
+        filterMoviesByYear(parseInt(e.target.value, 10));
+      });
+    });
+  });
   
